@@ -1,6 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { CatalogAttributesComponent } from './catalog/catalogAttributes/catalogAttributes.component';
+
 /*
 import { BasketComponent } from './basket/basket.component';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -12,8 +13,13 @@ import { CampaignsDetailComponent } from './campaigns/campaigns-detail/campaigns
 */
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'catalogattributes', pathMatch: 'full' },
-    { path: 'catalogattributes', component: CatalogAttributesComponent }
+    //{ path: '', loadChildren: 'app/layout/layout.module#LayoutModule', },
+    //{ path: '', loadChildren: './catalog/catalogAttributes/catalogAttributes.module#CatalogAttributesModule', },
+    { path: '', redirectTo: 'DashboardComponent', pathMatch: 'full' },
+    { path: 'DashboardComponent', component: DashboardComponent }
+
+    //{ path: '', redirectTo: 'catalogattributes', pathMatch: 'full' },
+    //{ path: 'catalogattributes', component: CatalogAttributesComponent }
 /*
     { path: 'basket', component: BasketComponent },
     { path: 'catalog', component: CatalogComponent },

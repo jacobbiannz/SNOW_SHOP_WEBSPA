@@ -19,10 +19,18 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\baseFrame\**" />
+    <Compile Remove="ClientApp\app\typescripts\**" />
     <Content Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\app\baseFrame\**" />
+    <EmbeddedResource Remove="ClientApp\app\typescripts\**" />
+    <None Remove="ClientApp\app\baseFrame\**" />
+    <None Remove="ClientApp\app\typescripts\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
     <None Remove="ClientApp\app\app.routes.ts" />
     <None Remove="ClientApp\app\catalog\catalogAttributes\CA-Detail.component.ts" />
     <None Remove="ClientApp\app\shared\services\configuration.service.ts" />
@@ -32,18 +40,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\assets\i18n\de.json" />
+    <Content Include="ClientApp\assets\i18n\en.json" />
+    <Content Include="ClientApp\assets\i18n\es.json" />
+    <Content Include="ClientApp\assets\i18n\fa.json" />
+    <Content Include="ClientApp\assets\i18n\fr.json" />
+    <Content Include="ClientApp\assets\i18n\it.json" />
+    <Content Include="ClientApp\assets\i18n\ur.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.routes.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\catalog\catalogAttributes\ca-detail.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\services\configuration.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\services\data.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\shared.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\_variables.scss" />
     <TypeScriptCompile Include="ClientApp\Guid.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ClientApp\app\catalog\catalogProduct\" />
+    <Folder Include="ClientApp\app\layout\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

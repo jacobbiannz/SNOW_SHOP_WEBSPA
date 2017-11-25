@@ -34,29 +34,21 @@ module.exports = (env) => {
                     //loaders: ["style-loader", "css-loader", "sass-loader"]
                 },
 
-                //{ test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
                 {
                     test: /\.(png|jpg|jpeg|gif|svg)$/,
                     use: 'url-loader?limit=25000'
-                }
-            ]
+                },
+
+                
+            ],
+
+            
         },
 
         resolve: { extensions: ['.js', '.ts', 'scss'] },
 
         plugins: [new CheckerPlugin()]
-        /*
-        plugins: [
-            new webpack.DefinePlugin({
-                window: undefined,
-                document: undefined,
-                location: JSON.stringify({
-                    protocol: 'https',
-                    host: `localhost`,
-                })
-            })
-        ]
-        */
+
     };
 
     // Configuration for client-side bundle suitable for running in browsers
