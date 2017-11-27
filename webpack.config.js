@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const AotPlugin = require('@ngtools/webpack').AotPlugin;
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
@@ -27,28 +28,27 @@ module.exports = (env) => {
                     test: /\.html$/,
                     use: 'html-loader?minimize=false'
                 },
+                
                 {
                     test: /\.scss$/,
                     exclude: /node_modules/,
-                    loader: 'raw-loader!sass-loader'
+                    //loader: 'raw-loader!sass-loader'
+                    use: ["raw-loader", "sass-loader"]
                     //loaders: ["style-loader", "css-loader", "sass-loader"]
                 },
-
+                
+                //{ test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
                 {
                     test: /\.(png|jpg|jpeg|gif|svg)$/,
                     use: 'url-loader?limit=25000'
-                },
-
-                
-            ],
-
-            
+                }
+            ]
         },
 
         resolve: { extensions: ['.js', '.ts', 'scss'] },
 
         plugins: [new CheckerPlugin()]
-
+       
     };
 
     // Configuration for client-side bundle suitable for running in browsers

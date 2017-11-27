@@ -18,7 +18,8 @@ const nonTreeShakableModules = [
     'bootstrap',
     'bootstrap/dist/css/bootstrap.css',
     'font-awesome/css/font-awesome.css',
-    //"./ClientApp/styles/app.scss"
+    //'./ClientApp/styles/app.scss',
+    './ClientApp/styles/app.css',
     'popper.js/dist/umd/popper',
     'es6-promise',
     'es6-shim',
@@ -60,7 +61,17 @@ module.exports = (env) => {
         output: { path: path.join(__dirname, 'wwwroot', 'dist') },
         module: {
             rules: [
-                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) }
+                { 
+                test: /\.css(\?|$)/, 
+                use: extractCSS.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) 
+                },
+                /*
+                {
+                    test: /\.scss(\?|$)/,
+                    //use: ["raw-loader", "sass-loader"]
+                    use: extractCSS.extract({ use: isDevBuild ? 'sass-loader' : 'sass-loader?minimize' }) 
+                },
+                */
             ]
         },
         plugins: [
@@ -83,7 +94,20 @@ module.exports = (env) => {
             libraryTarget: 'commonjs2',
         },
         module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] } ]
+            rules: [ 
+                    { 
+                        test: /\.css(\?|$)/, 
+                        use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] 
+                    } ,
+                    /*
+                    {
+                        test: /\.scss(\?|$)/,
+                        //use: ["raw-loader", "sass-loader"]
+                        use: ['to-string-loader', isDevBuild ? 'sass-loader' : 'sass-loader?minimize' ] 
+                       
+                    },
+                    */
+            ]
         },
         plugins: [
             new webpack.DllPlugin({

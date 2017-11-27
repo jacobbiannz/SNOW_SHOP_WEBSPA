@@ -10707,3 +10707,14 @@ a.text-dark:focus, a.text-dark:hover {
   overflow: visible;
   clip: auto;
 }
+/*
+.pppp {
+    color: red;
+}
+*/
+
+@media screen and (max-width: 992px) {
+    .push-right .sidebar {
+    left: 235px !important;
+}
+}

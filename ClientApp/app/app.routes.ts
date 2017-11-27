@@ -15,8 +15,9 @@ import { CampaignsDetailComponent } from './campaigns/campaigns-detail/campaigns
 export const routes: Routes = [
     //{ path: '', loadChildren: 'app/layout/layout.module#LayoutModule', },
     //{ path: '', loadChildren: './catalog/catalogAttributes/catalogAttributes.module#CatalogAttributesModule', },
-    { path: '', redirectTo: 'DashboardComponent', pathMatch: 'full' },
-    { path: 'DashboardComponent', component: DashboardComponent }
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'catalogattributes', component: CatalogAttributesComponent },
 
     //{ path: '', redirectTo: 'catalogattributes', pathMatch: 'full' },
     //{ path: 'catalogattributes', component: CatalogAttributesComponent }

@@ -1,16 +1,33 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-
-    <a href="#"  class="logo-img">
-        <img src="../../../assets/images/header_logo.jpg" />
-    </a>
-    
    
+    <!--
+    <div class="logo-img">
+        <a href="#" class="navbar-brand"> 
+            <img src="../../../assets/images/header_logo.jpg" class="rounded" alt="Cinque Terre">
+            &nbsp;Ammy&nbsp;Karen
+        </a>
+    </div>
+    -->
 
     <ul class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
-        </a>
+        <li>
+            <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-dashboard"></i>&nbsp;Dashboard
+            </a>
+        </li>
 
+        <li>
+            <a routerLink="/catalogattributes" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-cog"></i>&nbsp;Catalog Settings
+            </a>
+        </li>
+        <li>
+            <p></p>
+            <p></p>
+            <p style="color:white">----examples blow-----</p>
+        </li>
+
+        <!--
         <li routerLinkActive="['router-link-active']" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a [routerLink]="[menuItem.path]" class="list-group-item">
                 <span>
@@ -38,13 +55,13 @@
                 </ul>
             </li>
         </div>
-
+        -->
     </ul>
-    
+
 
     <!--
-    <ul class="list-group"> 
-      
+    <ul class="list-group">
+
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
         </a>
@@ -89,7 +106,7 @@
         </a>
         <a class="list-group-item more-themes" href="http://www.strapui.com/" >
             {{ 'More Theme' | translate }}
-        </a>   
+        </a>
     </ul>
     -->
 </nav>
